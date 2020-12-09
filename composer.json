@@ -3,9 +3,11 @@
     "description": "SDK de Integra\u0000\u0000o com a Im\u0000vel Web",
     "type": "library",
     "require": {
+        "ext-json": "*",
         "guzzlehttp/guzzle": "^7.2"
     },
     "require-dev": {
+        "fakerphp/faker": "^1.12",
         "phpunit/phpunit": "^9.5"
     },
     "license": "MIT",
