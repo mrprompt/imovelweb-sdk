@@ -1,0 +1,28 @@
+{
+    "name": "mrprompt/imovelweb-sdk",
+    "description": "SDK de Integra\u0000\u0000o com a Im\u0000vel Web",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^7.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thiago Paes",
+            "email": "mrprompt@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MrPrompt\\ImovelWeb\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MrPrompt\\ImovelWeb\\Tests\\": "tests/"
+        }
+    }
+}
