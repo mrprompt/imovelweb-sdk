@@ -20,7 +20,7 @@ abstract class Base
 
     /**
      * Constructor
-     * 
+     *
      * @param ClientInterface $client
      * @param string $mode 
      */

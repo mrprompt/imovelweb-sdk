@@ -15,7 +15,7 @@ class Authentication
         $response = $this->client->request(
             'post',
             'application/login',
-                [
+            [
                 'form_params' => [
                     'grant_type' => $grantType,
                     'client_id' => $clientId,
