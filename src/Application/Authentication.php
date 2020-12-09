@@ -31,7 +31,7 @@ class Authentication
     {
         $response = $this->client->request(
             'post',
-            'application/login',
+            'application/logout',
             [
                 'form_params' => [
                     'client_id' => $clientId,

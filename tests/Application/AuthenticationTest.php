@@ -40,6 +40,34 @@ class AuthenticationTest extends Base
     /**
      * @test
      */
+    public function loginWithInvalidCredentials()
+    {
+        self::markTestIncomplete();
+        $handleResponse = '
+        <BadClientCredentialsException>
+            <error>invalid_client</error>
+            <error_description>Bad client credentials</error_description>
+        </BadClientCredentialsException>
+        ';
+
+        $handlerStack = [
+            new Response(401, [], $handleResponse),
+        ];
+
+        $this->client = $this->getClient($handlerStack);
+        $this->service = new Authentication($this->client);
+
+        $result = $this->service->login(
+            $this->faker->shuffleString(),
+            $this->faker->randomNumber(6)
+        );
+
+        $this->expectException(\GuzzleHttp\Exception\ClientException::class);
+    }
+
+    /**
+     * @test
+     */
     public function logoutWithValidCredentials()
     {
         $handleResponse = '';
@@ -58,5 +86,34 @@ class AuthenticationTest extends Base
         );
 
         $this->assertEmpty($result);
+    }
+
+    /**
+     * @test
+     */
+    public function logoutWithoutClientId()
+    {
+        self::markTestIncomplete();
+        $handleResponse = '
+        <BadClientCredentialsException>
+            <error>invalid_client</error>
+            <error_description>Bad client credentials</error_description>
+        </BadClientCredentialsException>
+        ';
+
+        $handlerStack = [
+            new Response(401, [], $handleResponse),
+        ];
+
+        $this->client = $this->getClient($handlerStack);
+        $this->service = new Authentication($this->client);
+
+        $result = $this->service->logout(
+            $this->faker->shuffleString(),
+            $this->faker->randomNumber(6),
+            $this->faker->uuid,
+        );
+
+        $this->expectException(\GuzzleHttp\Exception\ClientException::class);
     }
 }
