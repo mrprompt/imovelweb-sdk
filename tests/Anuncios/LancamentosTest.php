@@ -1,8 +1,8 @@
 <?php
-namespace MrPrompt\ImovelWeb\Tests\Imobiliarias;
+namespace MrPrompt\ImovelWeb\Tests\Anuncios;
 
 use GuzzleHttp\Psr7\Response;
-use MrPrompt\ImovelWeb\Imobiliarias\Lancamentos;
+use MrPrompt\ImovelWeb\Anuncios\Lancamentos;
 use MrPrompt\ImovelWeb\Tests\Base\Base;
 
 final class LancamentosTest extends Base

@@ -1,5 +1,5 @@
 <?php
-namespace MrPrompt\ImovelWeb\Imobiliarias;
+namespace MrPrompt\ImovelWeb\Anuncios;
 
 use GuzzleHttp\Exception\ClientException;
 use MrPrompt\ImovelWeb\Base\Base;
