@@ -1,0 +1,31 @@
+{
+  "avisosConAltaCalidad": 0,
+  "avisosConBajaCalidad": 0,
+  "avisosConMediaCalidad": 0,
+  "avisosConPeorCalidad": [
+    {
+      "codigoAviso": "string",
+      "idAvisoNavplat": "string",
+      "mensajeCalidad": "string",
+      "porcentajeCalidad": 0,
+      "statusCalidad": "string",
+      "validaciones": [
+        {
+          "mensaje": "string",
+          "porcentajeAMejorar": 0,
+          "status": "string",
+          "sugerencia": "string"
+        }
+      ]
+    }
+  ],
+  "avisosDuplicados": 0,
+  "avisosOnline": 0,
+  "codigoInmobiliaria": "string",
+  "idNavplat": "string",
+  "maxPorcentajeCalidad": 0,
+  "minPorcentajeCalidad": 0,
+  "nombre": "string",
+  "promedioPorcentajeCalidad": 0,
+  "status": "string"
+}

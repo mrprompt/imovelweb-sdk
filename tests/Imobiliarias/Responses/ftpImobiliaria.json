@@ -1,0 +1,7 @@
+{
+  "filename": "string",
+  "host": "string",
+  "password": "string",
+  "path": "string",
+  "username": "string"
+}
