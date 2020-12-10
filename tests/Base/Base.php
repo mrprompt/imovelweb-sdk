@@ -32,4 +32,18 @@ abstract class Base extends TestCase
 
         return $client;
     }
+
+    protected function responseFixture($responseName)
+    {
+        $source = get_called_class();
+        $reflection = new \ReflectionClass($source);
+        $sourceDir = dirname($reflection->getFilename());
+        $fixtures = 'Responses';
+        $sep = DIRECTORY_SEPARATOR;
+        $fullPath = "{$sourceDir}{$sep}{$fixtures}{$sep}{$responseName}.*";
+        $search = glob($fullPath);
+        $file = array_shift($search);
+
+        return file_get_contents($file);
+    }
 }

@@ -1,0 +1,35 @@
+{
+  "content": [
+    {
+      "claveInterna": "string",
+      "codigoAviso": "string",
+      "codigoDesarrollo": "string",
+      "dataModificacao": "2020-12-10T16:00:11.767Z",
+      "fechaModificado": "string",
+      "idAvisoNavplat": 0,
+      "idDesarrolloNavplat": 0,
+      "imagen": {
+        "titulo": "string",
+        "urlImagenOriginal": "string",
+        "urlImagenPortal": "string"
+      },
+      "publicação": "string",
+      "tipoDeAviso": "string",
+      "tipoDePropiedad": 0,
+      "tipoDePublicacion": "string",
+      "titulo": "string",
+      "ubicacion": {
+        "codigoPostal": "string",
+        "direccion": "string",
+        "idUbicacion": "string",
+        "latitud": "string",
+        "longitud": "string",
+        "muestraMapa": "string",
+        "ubicacion": "string"
+      }
+    }
+  ],
+  "number": 0,
+  "size": 0,
+  "total": 0
+}

@@ -1,0 +1,4 @@
+<BadClientCredentialsException>
+    <error>invalid_client</error>
+    <error_description>Bad client credentials</error_description>
+</BadClientCredentialsException>

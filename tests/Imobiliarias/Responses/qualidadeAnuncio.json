@@ -1,0 +1,15 @@
+{
+  "codigoAviso": "string",
+  "idAvisoNavplat": "string",
+  "mensajeCalidad": "string",
+  "porcentajeCalidad": 0,
+  "statusCalidad": "string",
+  "validaciones": [
+    {
+      "mensaje": "string",
+      "porcentajeAMejorar": 0,
+      "status": "string",
+      "sugerencia": "string"
+    }
+  ]
+}

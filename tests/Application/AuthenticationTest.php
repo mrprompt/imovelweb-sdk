@@ -12,16 +12,8 @@ final class AuthenticationTest extends Base
      */
     public function loginWithValidCredentials()
     {
-        $handleResponse = '{
-            "access_token": "9afb6554-28ca-422b-85c4-f14d6381d6e5",
-            "token_type": "bearer",
-            "expires_in": 315350721,
-            "scope": "read write trust"
-        }';
-
-        $handlerStack = [
-            new Response(200, [], $handleResponse),
-        ];
+        $handleResponse = $this->responseFixture(__FUNCTION__);
+        $handlerStack = [new Response(200, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
         $this->service = new Authentication($this->client);
@@ -42,16 +34,8 @@ final class AuthenticationTest extends Base
      */
     public function loginWithInvalidCredentials()
     {
-        $handleResponse = '
-        <BadClientCredentialsException>
-            <error>invalid_client</error>
-            <error_description>Bad client credentials</error_description>
-        </BadClientCredentialsException>
-        ';
-
-        $handlerStack = [
-            new Response(401, [], $handleResponse),
-        ];
+        $handleResponse = $this->responseFixture(__FUNCTION__);
+        $handlerStack = [new Response(401, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
         $this->service = new Authentication($this->client);
@@ -70,10 +54,7 @@ final class AuthenticationTest extends Base
     public function logoutWithValidCredentials()
     {
         $handleResponse = '';
-
-        $handlerStack = [
-            new Response(204, [], $handleResponse),
-        ];
+        $handlerStack = [new Response(204, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
         $this->service = new Authentication($this->client);
@@ -92,16 +73,8 @@ final class AuthenticationTest extends Base
      */
     public function logoutWithoutClientId()
     {
-        $handleResponse = '
-        <BadClientCredentialsException>
-            <error>invalid_client</error>
-            <error_description>Bad client credentials</error_description>
-        </BadClientCredentialsException>
-        ';
-
-        $handlerStack = [
-            new Response(401, [], $handleResponse),
-        ];
+        $handleResponse = $this->responseFixture(__FUNCTION__);
+        $handlerStack = [new Response(401, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
         $this->service = new Authentication($this->client);

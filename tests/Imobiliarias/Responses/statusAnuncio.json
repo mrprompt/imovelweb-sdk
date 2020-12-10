@@ -1,0 +1,69 @@
+{
+  "cantidadDeVisitas": 0,
+  "codigoAviso": "string",
+  "codigoDesarrollo": "string",
+  "errores": [
+    {
+      "idAviso": 0,
+      "idInterfaceRun": 0,
+      "idMessage": 0,
+      "messageCode": "string",
+      "messageText": "string",
+      "messageType": "string"
+    }
+  ],
+  "estado": "string",
+  "fechaCreacion": "2020-12-10T16:00:11.817Z",
+  "fechaModificacion": "2020-12-10T16:00:11.817Z",
+  "fechaModificacionOpen": "2020-12-10T16:00:11.817Z",
+  "fechaOffline": "2020-12-10T16:00:11.817Z",
+  "fechaOnline": "2020-12-10T16:00:11.817Z",
+  "idAvisoNavplat": 0,
+  "idDesarrolloNavplat": 0,
+  "notificaciones": [
+    {
+      "idAviso": 0,
+      "idInterfaceRun": 0,
+      "idMessage": 0,
+      "messageCode": "string",
+      "messageText": "string",
+      "messageType": "string"
+    }
+  ],
+  "notificações": [
+    {
+      "idAviso": 0,
+      "idInterfaceRun": 0,
+      "idMessage": 0,
+      "messageCode": "string",
+      "messageText": "string",
+      "messageType": "string"
+    }
+  ],
+  "publicacion": "string",
+  "statusImagenes": [
+    {
+      "codigoAviso": "string",
+      "codigoInmobiliaria": "string",
+      "error": "string",
+      "fechaEncolado": "2020-12-10T16:00:11.817Z",
+      "idImagenNavplat": 0,
+      "intentosDeDescarga": 0,
+      "orden": 0,
+      "statusDownload": "string",
+      "titulo": "string",
+      "urlNavplat": "string",
+      "urlOrigen": "string"
+    }
+  ],
+  "warnings": [
+    {
+      "idAviso": 0,
+      "idInterfaceRun": 0,
+      "idMessage": 0,
+      "messageCode": "string",
+      "messageText": "string",
+      "messageType": "string"
+    }
+  ]
+}

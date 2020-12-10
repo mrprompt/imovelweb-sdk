@@ -1,0 +1,39 @@
+{
+  "codigoAviso": "string",
+  "codigoAvisoPadre": "string",
+  "codigoInmobiliaria": "string",
+  "errors": [
+    {
+      "idAviso": 0,
+      "idInterfaceRun": 0,
+      "idMessage": 0,
+      "messageCode": "string",
+      "messageText": "string",
+      "messageType": "string"
+    }
+  ],
+  "estado": "string",
+  "idAviso": 0,
+  "idAvisoPadre": 0,
+  "idEmpresa": 0,
+  "informacion": [
+    {
+      "idAviso": 0,
+      "idInterfaceRun": 0,
+      "idMessage": 0,
+      "messageCode": "string",
+      "messageText": "string",
+      "messageType": "string"
+    }
+  ],
+  "warnings": [
+    {
+      "idAviso": 0,
+      "idInterfaceRun": 0,
+      "idMessage": 0,
+      "messageCode": "string",
+      "messageText": "string",
+      "messageType": "string"
+    }
+  ]
+}
