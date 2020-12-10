@@ -5,7 +5,7 @@ use GuzzleHttp\Psr7\Response;
 use MrPrompt\ImovelWeb\Imobiliarias\Anuncios;
 use MrPrompt\ImovelWeb\Tests\Base\Base;
 
-class AnunciosTest extends Base
+final class AnunciosTest extends Base
 {
     /**
      * @test
@@ -33,5 +33,4 @@ class AnunciosTest extends Base
         $this->assertArrayHasKey('total', $result);
         $this->assertArrayHasKey('content', $result);
     }
-
 }

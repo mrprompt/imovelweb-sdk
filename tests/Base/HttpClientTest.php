@@ -11,7 +11,9 @@ final class HttpClientTest extends Base
      */
     public function constructor()
     {
-        $client = new HttpClient($this->token);
+
+        $token = $this->faker->uuid;
+        $client = new HttpClient($token);
 
         $this->assertInstanceOf(ClientInterface::class, $client);
         $this->assertEquals(HttpClient::USER_AGENT, $client->headers['User-Agent']);

@@ -5,7 +5,7 @@ use GuzzleHttp\Psr7\Response;
 use MrPrompt\ImovelWeb\Tests\Base\Base;
 use MrPrompt\ImovelWeb\Application\Authentication;
 
-class AuthenticationTest extends Base
+final class AuthenticationTest extends Base
 {
     /**
      * @test
@@ -42,7 +42,6 @@ class AuthenticationTest extends Base
      */
     public function loginWithInvalidCredentials()
     {
-        self::markTestIncomplete();
         $handleResponse = '
         <BadClientCredentialsException>
             <error>invalid_client</error>
@@ -62,7 +61,7 @@ class AuthenticationTest extends Base
             $this->faker->randomNumber(6)
         );
 
-        $this->expectException(\GuzzleHttp\Exception\ClientException::class);
+        $this->assertEmpty($result);
     }
 
     /**
@@ -93,7 +92,6 @@ class AuthenticationTest extends Base
      */
     public function logoutWithoutClientId()
     {
-        self::markTestIncomplete();
         $handleResponse = '
         <BadClientCredentialsException>
             <error>invalid_client</error>
@@ -114,6 +112,6 @@ class AuthenticationTest extends Base
             $this->faker->uuid,
         );
 
-        $this->expectException(\GuzzleHttp\Exception\ClientException::class);
+        $this->assertEmpty($result);
     }
 }

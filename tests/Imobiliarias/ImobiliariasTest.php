@@ -5,12 +5,12 @@ use GuzzleHttp\Psr7\Response;
 use MrPrompt\ImovelWeb\Imobiliarias\Imobiliarias;
 use MrPrompt\ImovelWeb\Tests\Base\Base;
 
-class ImobiliariasTest extends Base
+final class ImobiliariasTest extends Base
 {
     /**
      * @test
      */
-    public function getAll()
+    public function listar()
     {
         $handleResponse = '{
             "number": 0,
@@ -41,12 +41,11 @@ class ImobiliariasTest extends Base
         $this->client = $this->getClient($handlerStack);
         $this->service = new Imobiliarias($this->client);
 
-        $result = $this->service->getAll();
+        $result = $this->service->listar();
 
         $this->assertArrayHasKey('number', $result);
         $this->assertArrayHasKey('size', $result);
         $this->assertArrayHasKey('total', $result);
         $this->assertArrayHasKey('content', $result);
     }
-
 }

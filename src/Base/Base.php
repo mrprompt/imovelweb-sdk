@@ -1,16 +1,13 @@
 <?php
 namespace MrPrompt\ImovelWeb\Base;
 
-use GuzzleHttp\ClientInterface;
+use Psr\Http\Client\ClientInterface;
 
 /**
  * @codeCoverageIgnore
  */
 abstract class Base
 {
-    /**
-     * @var ClientInterface
-     */
     protected ClientInterface $client;
 
     public const PRODUCTION  = 'production';
