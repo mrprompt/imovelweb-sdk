@@ -23,7 +23,6 @@ class Anuncios extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
-
         }
     }
 
@@ -43,7 +42,6 @@ class Anuncios extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
-
         }
     }
 
@@ -63,7 +61,6 @@ class Anuncios extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
-
         }
     }
 
@@ -85,7 +82,6 @@ class Anuncios extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
-
         }
     }
 
@@ -106,7 +102,6 @@ class Anuncios extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
-
         }
     }
 
@@ -126,7 +121,6 @@ class Anuncios extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
-
         }
     }
 
@@ -146,7 +140,6 @@ class Anuncios extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
-
         }
     }
 }

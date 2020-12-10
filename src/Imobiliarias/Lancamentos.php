@@ -21,7 +21,6 @@ class Lancamentos extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
-
         }
     }
 
@@ -41,7 +40,6 @@ class Lancamentos extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
-
         }
     }
 
@@ -63,7 +61,6 @@ class Lancamentos extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
-
         }
     }
 }
