@@ -3,7 +3,7 @@ namespace MrPrompt\ImovelWeb\Imobiliarias;
 
 use GuzzleHttp\ClientInterface;
 
-class Imobiliaria
+class Imobiliarias
 {
     public function __construct(ClientInterface $client)
     {

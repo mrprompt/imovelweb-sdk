@@ -2,10 +2,10 @@
 namespace MrPrompt\ImovelWeb\Tests\Imobiliarias;
 
 use GuzzleHttp\Psr7\Response;
-use MrPrompt\ImovelWeb\Imobiliarias\Imobiliaria;
+use MrPrompt\ImovelWeb\Imobiliarias\Imobiliarias;
 use MrPrompt\ImovelWeb\Tests\Base\Base;
 
-class ImobiliariaTest extends Base
+class ImobiliariasTest extends Base
 {
     /**
      * @test
@@ -39,7 +39,7 @@ class ImobiliariaTest extends Base
         ];
 
         $this->client = $this->getClient($handlerStack);
-        $this->service = new Imobiliaria($this->client);
+        $this->service = new Imobiliarias($this->client);
 
         $result = $this->service->getAll();
 
