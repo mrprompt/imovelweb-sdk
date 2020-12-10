@@ -1,15 +1,10 @@
 <?php
 namespace MrPrompt\ImovelWeb\Imobiliarias;
 
-use GuzzleHttp\ClientInterface;
+use MrPrompt\ImovelWeb\Base\Base;
 
-class Anuncios
+class Anuncios extends Base
 {
-    public function __construct(ClientInterface $client)
-    {
-        $this->client = $client;
-    }
-
     public function resumo(string $imobiliaria)
     {
         $response = $this->client->request('get', "imobiliarias/{$imobiliaria}/anuncios/online/resumo");

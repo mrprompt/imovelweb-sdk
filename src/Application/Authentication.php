@@ -1,15 +1,10 @@
 <?php
 namespace MrPrompt\ImovelWeb\Application;
 
-use GuzzleHttp\ClientInterface;
+use MrPrompt\ImovelWeb\Base\Base;
 
-class Authentication
+class Authentication extends Base
 {
-    public function __construct(ClientInterface $client)
-    {
-        $this->client = $client;
-    }
-
     public function login(string $clientId, string $clientSecret, string $grantType = 'client_credentials')
     {
         $response = $this->client->request(

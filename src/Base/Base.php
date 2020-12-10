@@ -30,6 +30,6 @@ abstract class Base
     public function __construct(ClientInterface $client, string $mode = 'production')
     {
         $this->client = $client;
-        $this->client->baseUrl = static::CLIENT_URLS[$mode];
+        $this->client->baseUrl = self::CLIENT_URLS[$mode];
     }
 }

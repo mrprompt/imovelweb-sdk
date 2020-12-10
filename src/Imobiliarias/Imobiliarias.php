@@ -1,15 +1,10 @@
 <?php
 namespace MrPrompt\ImovelWeb\Imobiliarias;
 
-use GuzzleHttp\ClientInterface;
+use MrPrompt\ImovelWeb\Base\Base;
 
-class Imobiliarias
+class Imobiliarias extends Base
 {
-    public function __construct(ClientInterface $client)
-    {
-        $this->client = $client;
-    }
-
     public function getAll()
     {
         $response = $this->client->request('get', 'imobiliarias');
