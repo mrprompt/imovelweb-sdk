@@ -12,7 +12,7 @@ final class ImobiliariasTest extends Base
      */
     public function listarImobiliarias()
     {
-        $handleResponse = $this->responseFixture(__FUNCTION__);
+        $handleResponse = $this->fixture(__FUNCTION__, 'Responses');
         $handlerStack = [new Response(200, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);

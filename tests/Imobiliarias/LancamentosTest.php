@@ -12,7 +12,7 @@ final class LancamentosTest extends Base
      */
     public function infoLancamentos()
     {
-        $handleResponse = $this->responseFixture(__FUNCTION__);
+        $handleResponse = $this->fixture(__FUNCTION__, 'Responses');
         $handlerStack = [new Response(200, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
@@ -31,173 +31,13 @@ final class LancamentosTest extends Base
      */
     public function atualizarLancamento()
     {
-        $handleResponse = $this->responseFixture(__FUNCTION__);
+        $handleResponse = $this->fixture(__FUNCTION__, 'Responses');
         $handlerStack = [new Response(201, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
         $this->service = new Lancamentos($this->client);
 
-        $detalhes  = json_decode(trim('
-        {
-          "caracteristicas": [
-            {
-              "id": "string",
-              "idValor": "string",
-              "nombre": "string",
-              "valor": "string"
-            }
-          ],
-          "claveReferencia": "string",
-          "codigoAviso": "string",
-          "descripcion": "string",
-          "estado": "string",
-          "etapaDesarrollo": "string",
-          "fechaEntrega": "string",
-          "localizacion": {
-            "codigoPostal": "string",
-            "direccion": "string",
-            "idUbicacion": "string",
-            "latitud": "string",
-            "longitud": "string",
-            "muestraMapa": "string",
-            "ubicacion": "string"
-          },
-          "multimedia": {
-            "imagenes": [
-              {
-                "titulo": "string",
-                "urlImagenOriginal": "string",
-                "urlImagenPortal": "string"
-              }
-            ],
-            "planos": [
-              {
-                "titulo": "string",
-                "urlImagenOriginal": "string",
-                "urlImagenPortal": "string"
-              }
-            ],
-            "recorridos360": [
-              {
-                "codigoRecorrido360": "string",
-                "titulo": "string"
-              }
-            ],
-            "videos": [
-              {
-                "codigoVideo": "string",
-                "titulo": "string"
-              }
-            ]
-          },
-          "precios": [
-            {
-              "moneda": "string",
-              "monto": "string",
-              "operacion": "string"
-            }
-          ],
-          "publicacion": {
-            "fechaOffline": "2020-12-10T16:00:11.754Z",
-            "fechaOnline": "2020-12-10T16:00:11.754Z",
-            "tipoDePublicacion": "string"
-          },
-          "publicador": {
-            "codigoInmobiliaria": "string",
-            "emailAsesor": "string",
-            "emailDeContacto": "string",
-            "nombreDeContacto": "string",
-            "telefonoDeContacto": "string"
-          },
-          "tipoDePropiedad": {
-            "idSubTipo": "string",
-            "idTipo": "string",
-            "subTipo": "string",
-            "tipo": "string"
-          },
-          "titulo": "string",
-          "unidades": [
-            {
-              "caracteristicas": [
-                {
-                  "id": "string",
-                  "idValor": "string",
-                  "nombre": "string",
-                  "valor": "string"
-                }
-              ],
-              "claveReferencia": "string",
-              "codigoAviso": "string",
-              "descripcion": "string",
-              "estado": "string",
-              "localizacion": {
-                "codigoPostal": "string",
-                "direccion": "string",
-                "idUbicacion": "string",
-                "latitud": "string",
-                "longitud": "string",
-                "muestraMapa": "string",
-                "ubicacion": "string"
-              },
-              "multimedia": {
-                "imagenes": [
-                  {
-                    "titulo": "string",
-                    "urlImagenOriginal": "string",
-                    "urlImagenPortal": "string"
-                  }
-                ],
-                "planos": [
-                  {
-                    "titulo": "string",
-                    "urlImagenOriginal": "string",
-                    "urlImagenPortal": "string"
-                  }
-                ],
-                "recorridos360": [
-                  {
-                    "codigoRecorrido360": "string",
-                    "titulo": "string"
-                  }
-                ],
-                "videos": [
-                  {
-                    "codigoVideo": "string",
-                    "titulo": "string"
-                  }
-                ]
-              },
-              "precios": [
-                {
-                  "moneda": "string",
-                  "monto": "string",
-                  "operacion": "string"
-                }
-              ],
-              "publicacion": {
-                "fechaOffline": "2020-12-10T16:00:11.754Z",
-                "fechaOnline": "2020-12-10T16:00:11.754Z",
-                "tipoDePublicacion": "string"
-              },
-              "publicador": {
-                "codigoInmobiliaria": "string",
-                "emailAsesor": "string",
-                "emailDeContacto": "string",
-                "nombreDeContacto": "string",
-                "telefonoDeContacto": "string"
-              },
-              "tipoDePropiedad": {
-                "idSubTipo": "string",
-                "idTipo": "string",
-                "subTipo": "string",
-                "tipo": "string"
-              },
-              "titulo": "string"
-            }
-          ],
-          "urlLogo": "string"
-        }
-        '), true);
+        $detalhes  = json_decode(trim($this->fixture(__FUNCTION__, 'Requests')), true);
         $result = $this->service->atualizar('15447738', '3214568', $detalhes);
 
         $this->assertArrayHasKey('codigoAviso', $result[0]);

@@ -12,7 +12,7 @@ final class AnunciosTest extends Base
      */
     public function resumoSemParametros()
     {
-        $handleResponse = $this->responseFixture(__FUNCTION__);
+        $handleResponse = $this->fixture(__FUNCTION__, 'Responses');
         $handlerStack = [new Response(200, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
@@ -31,7 +31,7 @@ final class AnunciosTest extends Base
      */
     public function resumoComParametros()
     {
-        $handleResponse = $this->responseFixture(__FUNCTION__);
+        $handleResponse = $this->fixture(__FUNCTION__, 'Responses');
         $handlerStack = [new Response(200, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
@@ -50,7 +50,7 @@ final class AnunciosTest extends Base
      */
     public function infoAnuncio()
     {
-        $handleResponse = $this->responseFixture(__FUNCTION__);
+        $handleResponse = $this->fixture(__FUNCTION__, 'Responses');
         $handlerStack = [new Response(200, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
@@ -69,91 +69,13 @@ final class AnunciosTest extends Base
      */
     public function atualizarAnuncio()
     {
-        $handleResponse = $this->responseFixture(__FUNCTION__);
+        $handleResponse = $this->fixture(__FUNCTION__, 'Responses');
         $handlerStack = [new Response(201, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
         $this->service = new Anuncios($this->client);
 
-        $detalhes  = json_decode(trim('
-        {
-          "caracteristicas": [
-            {
-              "id": "string",
-              "idValor": "string",
-              "nombre": "string",
-              "valor": "string"
-            }
-          ],
-          "claveReferencia": "string",
-          "codigoAviso": "string",
-          "descripcion": "string",
-          "estado": "string",
-          "localizacion": {
-            "codigoPostal": "string",
-            "direccion": "string",
-            "idUbicacion": "string",
-            "latitud": "string",
-            "longitud": "string",
-            "muestraMapa": "string",
-            "ubicacion": "string"
-          },
-          "multimedia": {
-            "imagenes": [
-              {
-                "titulo": "string",
-                "urlImagenOriginal": "string",
-                "urlImagenPortal": "string"
-              }
-            ],
-            "planos": [
-              {
-                "titulo": "string",
-                "urlImagenOriginal": "string",
-                "urlImagenPortal": "string"
-              }
-            ],
-            "recorridos360": [
-              {
-                "codigoRecorrido360": "string",
-                "titulo": "string"
-              }
-            ],
-            "videos": [
-              {
-                "codigoVideo": "string",
-                "titulo": "string"
-              }
-            ]
-          },
-          "precios": [
-            {
-              "moneda": "string",
-              "monto": "string",
-              "operacion": "string"
-            }
-          ],
-          "publicacion": {
-            "fechaOffline": "2020-12-10T16:00:11.750Z",
-            "fechaOnline": "2020-12-10T16:00:11.750Z",
-            "tipoDePublicacion": "string"
-          },
-          "publicador": {
-            "codigoInmobiliaria": "string",
-            "emailAsesor": "string",
-            "emailDeContacto": "string",
-            "nombreDeContacto": "string",
-            "telefonoDeContacto": "string"
-          },
-          "tipoDePropiedad": {
-            "idSubTipo": "string",
-            "idTipo": "string",
-            "subTipo": "string",
-            "tipo": "string"
-          },
-          "titulo": "string"
-        }
-        '), true);
+        $detalhes  = json_decode(trim($this->fixture(__FUNCTION__, 'Requests')), true);
         $result = $this->service->atualizar('15447738', '3214568', $detalhes);
 
         $this->assertArrayHasKey('errors', $result);
@@ -167,7 +89,7 @@ final class AnunciosTest extends Base
      */
     public function associarAnuncio()
     {
-        $handleResponse = $this->responseFixture(__FUNCTION__);
+        $handleResponse = $this->fixture(__FUNCTION__, 'Responses');
         $handlerStack = [new Response(204, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
@@ -183,7 +105,7 @@ final class AnunciosTest extends Base
      */
     public function qualidadeAnuncio()
     {
-        $handleResponse = $this->responseFixture(__FUNCTION__);
+        $handleResponse = $this->fixture(__FUNCTION__, 'Responses');
         $handlerStack = [new Response(200, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
@@ -203,7 +125,7 @@ final class AnunciosTest extends Base
      */
     public function statusAnuncio()
     {
-        $handleResponse = $this->responseFixture(__FUNCTION__);
+        $handleResponse = $this->fixture(__FUNCTION__, 'Responses');
         $handlerStack = [new Response(200, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
@@ -221,7 +143,7 @@ final class AnunciosTest extends Base
      */
     public function removerAnuncio()
     {
-        $handleResponse = $this->responseFixture(__FUNCTION__);
+        $handleResponse = $this->fixture(__FUNCTION__, 'Responses');
         $handlerStack = [new Response(204, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);

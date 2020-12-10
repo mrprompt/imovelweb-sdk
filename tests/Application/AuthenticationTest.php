@@ -12,7 +12,7 @@ final class AuthenticationTest extends Base
      */
     public function loginWithValidCredentials()
     {
-        $handleResponse = $this->responseFixture(__FUNCTION__);
+        $handleResponse = $this->fixture(__FUNCTION__, 'Responses');
         $handlerStack = [new Response(200, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
@@ -34,7 +34,7 @@ final class AuthenticationTest extends Base
      */
     public function loginWithInvalidCredentials()
     {
-        $handleResponse = $this->responseFixture(__FUNCTION__);
+        $handleResponse = $this->fixture(__FUNCTION__, 'Responses');
         $handlerStack = [new Response(401, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
@@ -73,7 +73,7 @@ final class AuthenticationTest extends Base
      */
     public function logoutWithoutClientId()
     {
-        $handleResponse = $this->responseFixture(__FUNCTION__);
+        $handleResponse = $this->fixture(__FUNCTION__, 'Responses');
         $handlerStack = [new Response(401, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);

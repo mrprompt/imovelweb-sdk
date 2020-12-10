@@ -8,6 +8,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
+use ReflectionClass;
 
 abstract class Base extends TestCase
 {
@@ -33,13 +34,16 @@ abstract class Base extends TestCase
         return $client;
     }
 
-    protected function responseFixture($responseName)
+    protected function fixture(string $responseName, string $fixtureType = 'Response')
     {
         $source = get_called_class();
-        $reflection = new \ReflectionClass($source);
+
+        $reflection = new ReflectionClass($source);
         $sourceDir = dirname($reflection->getFilename());
-        $fixtures = 'Responses';
+
+        $fixtures = ucfirst($fixtureType);
         $sep = DIRECTORY_SEPARATOR;
+
         $fullPath = "{$sourceDir}{$sep}{$fixtures}{$sep}{$responseName}.*";
         $search = glob($fullPath);
         $file = array_shift($search);
