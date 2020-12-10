@@ -16,5 +16,4 @@ class Imobiliarias
 
         return json_decode($response->getBody(), true);
     }
-
 }

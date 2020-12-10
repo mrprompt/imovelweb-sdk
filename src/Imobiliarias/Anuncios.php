@@ -16,5 +16,4 @@ class Anuncios
 
         return json_decode($response->getBody(), true);
     }
-
 }
