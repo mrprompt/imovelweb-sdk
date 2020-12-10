@@ -3,6 +3,9 @@ namespace MrPrompt\ImovelWeb\Base;
 
 use GuzzleHttp\ClientInterface;
 
+/**
+ * @codeCoverageIgnore
+ */
 abstract class Base
 {
     /**
