@@ -6,6 +6,11 @@ use MrPrompt\ImovelWeb\Base\Base;
 
 class Imobiliarias extends Base
 {
+    /**
+     * Todas as imobiliárias para uma integração.
+     *
+     * @return mixed
+     */
     public function listar()
     {
         try {
@@ -13,9 +18,16 @@ class Imobiliarias extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
+            return [];
         }
     }
 
+    /**
+     * Desvincular uma imobiliaria de uma interface
+     *
+     * @param string $imobiliaria
+     * @return mixed
+     */
     public function desvincular(string $imobiliaria)
     {
         try {
@@ -23,9 +35,16 @@ class Imobiliarias extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
+            return [];
         }
     }
 
+    /**
+     * Dados de FTP da imobiliária
+     *
+     * @param string $imobiliaria
+     * @return mixed
+     */
     public function ftp(string $imobiliaria)
     {
         try {
@@ -33,9 +52,16 @@ class Imobiliarias extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
+            return [];
         }
     }
 
+    /**
+     * Qualidade de uma integração
+     *
+     * @param string $imobiliaria
+     * @return mixed
+     */
     public function qualidade(string $imobiliaria)
     {
         try {
@@ -43,6 +69,7 @@ class Imobiliarias extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
+            return [];
         }
     }
 }
