@@ -9,7 +9,7 @@
 composer require mrprompt/imovelweb-sdk
 ```
 
-# Uso
+### Cliente HTTP e Ambiente
 
 Prepare o cliente HTTP com sua credencial e ambiente.
 
