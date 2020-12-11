@@ -1,0 +1,16 @@
+{
+  "disponibles": [
+    {
+      "cantidadContratado": 0,
+      "cantidadDisponible": 0,
+      "planDePublicacion": "string"
+    }
+  ],
+  "vencimientos": [
+    {
+      "cantidad": 0,
+      "fecha": "2020-12-11T04:09:20.173Z",
+      "planDePublicacion": "string"
+    }
+  ]
+}

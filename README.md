@@ -89,6 +89,19 @@ $imobiliarias->ftp(string $imobiliaria);
 $imobiliarias->qualidade(string $imobiliaria);
 ```
 
+### Vendas
+
+Vendas
+
+```php
+use MrPrompt\ImovelWeb\Vendas\Vendas;
+
+/* @var $client \MrPrompt\ImovelWeb\Base\HttpClient */
+$vendas = new Vendas($client);
+$vendas->disponibilidade(string $imobiliaria);
+$vendas->grade(string $imobiliaria);
+```
+
 # Documentação
 
 http://api-br.sandbox.open.navent.com/
