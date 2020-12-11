@@ -1,7 +1,6 @@
 <?php
 namespace ImovelWeb\Anuncios;
 
-use GuzzleHttp\Exception\ClientException;
 use ImovelWeb\Base\Base;
 
 final class Anuncios extends Base
@@ -16,17 +15,10 @@ final class Anuncios extends Base
      */
     public function resumo(string $imobiliaria, array $args = []): array
     {
-        try {
-            $uri = "imobiliarias/{$imobiliaria}/anuncios/online/resumo";
-            $params = http_build_query($args);
-            $response = $this->client->request('GET', "{$uri}?{$params}");
+        $uri = "imobiliarias/{$imobiliaria}/anuncios/online/resumo";
+        $params = http_build_query($args);
 
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('GET', "{$uri}?{$params}");
     }
 
     /**
@@ -38,16 +30,7 @@ final class Anuncios extends Base
      */
     public function remover(string $imobiliaria, string $anuncio): array
     {
-        try {
-            $uri = "imobiliarias/{$imobiliaria}/anuncios//{$anuncio}";
-            $response = $this->client->request('DELETE', $uri);
-
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('DELETE', "imobiliarias/{$imobiliaria}/anuncios/{$anuncio}");
     }
 
     /**
@@ -59,17 +42,7 @@ final class Anuncios extends Base
      */
     public function info(string $imobiliaria, string $anuncio): array
     {
-        try {
-            $uri = "imobiliarias/{$imobiliaria}/anuncios/{$anuncio}";
-
-            $response = $this->client->request('GET', $uri);
-
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('GET', "imobiliarias/{$imobiliaria}/anuncios/{$anuncio}");
     }
 
     /**
@@ -82,24 +55,10 @@ final class Anuncios extends Base
      */
     public function atualizar(string $imobiliaria, string $anuncio, array $detalhes = []): array
     {
-        try {
-            $this->validate(__METHOD__, $detalhes);
+        $uri = "imobiliarias/{$imobiliaria}/anuncios/{$anuncio}";
+        $body = ['aviso' => $detalhes];
 
-            $uri = "imobiliarias/{$imobiliaria}/anuncios/{$anuncio}";
-            $body = ['aviso' => json_encode($detalhes)];
-
-            $response = $this->client->request('PUT', $uri, $body);
-
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        } catch (\InvalidArgumentException $invalidArgumentException) {
-            $xml = explode(self::SEPARATOR, $invalidArgumentException->getMessage());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('PUT', $uri, $body, __METHOD__);
     }
 
     /**
@@ -112,17 +71,9 @@ final class Anuncios extends Base
      */
     public function associar(string $imobiliaria, string $origem, string $destino): array
     {
-        try {
-            $uri = "imobiliarias/{$imobiliaria}/anuncios/{$origem}/{$destino}";
+        $uri = "imobiliarias/{$imobiliaria}/anuncios/{$origem}/{$destino}";
 
-            $response = $this->client->request('PUT', $uri);
-
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('PUT', $uri);
     }
 
     /**
@@ -134,17 +85,9 @@ final class Anuncios extends Base
      */
     public function qualidade(string $imobiliaria, string $anuncio): array
     {
-        try {
-            $uri = "imobiliarias/{$imobiliaria}/anuncios/{$anuncio}/qualidade";
+        $uri = "imobiliarias/{$imobiliaria}/anuncios/{$anuncio}/qualidade";
 
-            $response = $this->client->request('GET', $uri);
-
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('GET', $uri);
     }
 
     /**
@@ -156,16 +99,8 @@ final class Anuncios extends Base
      */
     public function status(string $imobiliaria, string $anuncio): array
     {
-        try {
-            $uri = "imobiliarias/{$imobiliaria}/anuncios/{$anuncio}/status";
+        $uri = "imobiliarias/{$imobiliaria}/anuncios/{$anuncio}/status";
 
-            $response = $this->client->request('GET', $uri);
-
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('GET', $uri);
     }
 }

@@ -13,15 +13,7 @@ final class Imobiliarias extends Base
      */
     public function listar()
     {
-        try {
-            $response = $this->client->request('GET', 'imobiliarias');
-
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('GET', 'imobiliarias');
     }
 
     /**
@@ -32,15 +24,9 @@ final class Imobiliarias extends Base
      */
     public function desvincular(string $imobiliaria)
     {
-        try {
-            $response = $this->client->request('DELETE', "imobiliarias/{$imobiliaria}");
+        $uri = "imobiliarias/{$imobiliaria}";
 
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('DELETE', $uri);
     }
 
     /**
@@ -51,15 +37,9 @@ final class Imobiliarias extends Base
      */
     public function ftp(string $imobiliaria)
     {
-        try {
-            $response = $this->client->request('GET', "imobiliarias/{$imobiliaria}/ftp");
+        $uri = "imobiliarias/{$imobiliaria}/ftp";
 
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('GET', $uri);
     }
 
     /**
@@ -70,14 +50,8 @@ final class Imobiliarias extends Base
      */
     public function qualidade(string $imobiliaria)
     {
-        try {
-            $response = $this->client->request('GET', "qualidade/{$imobiliaria}/qualidade");
+        $uri = "qualidade/{$imobiliaria}/qualidade";
 
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('GET', $uri);
     }
 }

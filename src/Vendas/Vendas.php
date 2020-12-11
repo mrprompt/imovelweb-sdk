@@ -1,7 +1,6 @@
 <?php
 namespace ImovelWeb\Vendas;
 
-use GuzzleHttp\Exception\ClientException;
 use ImovelWeb\Base\Base;
 
 final class Vendas extends Base
@@ -14,15 +13,9 @@ final class Vendas extends Base
      */
     public function disponibilidade(string $imobiliaria)
     {
-        try {
-            $response = $this->client->request('GET', "imobiliarias/{$imobiliaria}/disponibilidade");
+        $uri = "imobiliarias/{$imobiliaria}/disponibilidade";
 
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('GET', $uri);
     }
 
     /**
@@ -33,14 +26,8 @@ final class Vendas extends Base
      */
     public function grade(string $imobiliaria)
     {
-        try {
-            $response = $this->client->request('GET', "imobiliarias/{$imobiliaria}/grade");
+        $uri = "imobiliarias/{$imobiliaria}/grade";
 
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('GET', $uri);
     }
 }

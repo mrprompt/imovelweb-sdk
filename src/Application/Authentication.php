@@ -1,7 +1,6 @@
 <?php
 namespace ImovelWeb\Application;
 
-use GuzzleHttp\Exception\ClientException;
 use ImovelWeb\Base\Base;
 
 final class Authentication extends Base
@@ -16,25 +15,16 @@ final class Authentication extends Base
      */
     public function login(string $clientId, string $clientSecret, string $grantType = 'client_credentials')
     {
-        try {
-            $response = $this->client->request(
-                'post',
-                'application/login',
-                [
-                    'form_params' => [
-                        'grant_type' => $grantType,
-                        'client_id' => $clientId,
-                        'client_secret' => $clientSecret,
-                    ]
-                ]
-            );
+        $uri = 'application/login';
+        $body = [
+            'form_params' => [
+                'grant_type' => $grantType,
+                'client_id' => $clientId,
+                'client_secret' => $clientSecret,
+            ]
+        ];
 
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('POST', $uri, $body);
     }
 
     /**
@@ -47,24 +37,15 @@ final class Authentication extends Base
      */
     public function logout(string $clientId, string $clientSecret, string $token)
     {
-        try {
-            $response = $this->client->request(
-                'post',
-                'application/logout',
-                [
-                    'form_params' => [
-                        'client_id' => $clientId,
-                        'client_secret' => $clientSecret,
-                        'token' => $token,
-                    ]
-                ]
-            );
+        $uri = 'application/logout';
+        $body = [
+            'form_params' => [
+                'client_id' => $clientId,
+                'client_secret' => $clientSecret,
+                'token' => $token,
+            ]
+        ];
 
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('POST', $uri, $body);
     }
 }

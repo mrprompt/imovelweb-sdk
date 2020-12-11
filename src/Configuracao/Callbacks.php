@@ -1,7 +1,6 @@
 <?php
 namespace ImovelWeb\Configuracao;
 
-use GuzzleHttp\Exception\ClientException;
 use ImovelWeb\Base\Base;
 
 final class Callbacks extends Base
@@ -13,15 +12,7 @@ final class Callbacks extends Base
      */
     public function listar()
     {
-        try {
-            $response = $this->client->request('GET', "configuracao/callbacks");
-
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('GET', 'configuracao/callbacks');
     }
 
     /**
@@ -32,21 +23,8 @@ final class Callbacks extends Base
      */
     public function atualizar(array $configuracoes)
     {
-        try {
-            $this->validate(__METHOD__, $configuracoes);
+        $data = ["configuracionCallback" => $configuracoes];
 
-            $body = ['configuracionCallback' => json_encode($configuracoes)];
-            $response = $this->client->request('PUT', "configuracao/callbacks", $body);
-
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        } catch (\InvalidArgumentException $invalidArgumentException) {
-            $xml = explode(self::SEPARATOR, $invalidArgumentException->getMessage());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request("PUT", "configuracao/callbacks", $data, __METHOD__);
     }
 }

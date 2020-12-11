@@ -1,9 +1,7 @@
 <?php
 namespace ImovelWeb\Anuncios;
 
-use GuzzleHttp\Exception\ClientException;
 use ImovelWeb\Base\Base;
-use ReflectionException;
 
 final class Lancamentos extends Base
 {
@@ -16,16 +14,9 @@ final class Lancamentos extends Base
      */
     public function resumo(string $imobiliaria, string $lancamento)
     {
-        try {
-            $uri = "imobiliarias/{$imobiliaria}/lancamentos/{$lancamento}";
-            $response = $this->client->request('DELETE', $uri);
+        $uri = "imobiliarias/{$imobiliaria}/lancamentos/{$lancamento}";
 
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('DELETE', $uri);
     }
 
     /**
@@ -37,16 +28,9 @@ final class Lancamentos extends Base
      */
     public function info(string $imobiliaria, string $lancamento)
     {
-        try {
-            $uri = "imobiliarias/{$imobiliaria}/lancamentos/{$lancamento}";
-            $response = $this->client->request('GET', $uri);
+        $uri = "imobiliarias/{$imobiliaria}/lancamentos/{$lancamento}";
 
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('GET', $uri);
     }
 
     /**
@@ -59,23 +43,9 @@ final class Lancamentos extends Base
      */
     public function atualizar(string $imobiliaria, string $lancamento, array $detalhes = [])
     {
-        try {
-            $this->validate(__METHOD__, $detalhes);
+        $uri = "imobiliarias/{$imobiliaria}/lancamentos/{$lancamento}";
+        $body = ['anuncio' => $detalhes];
 
-            $uri = "imobiliarias/{$imobiliaria}/lancamentos/{$lancamento}";
-            $body = ['anuncio' => json_encode($detalhes)];
-
-            $response = $this->client->request('PUT', $uri, $body);
-
-            return json_decode($response->getBody(), true);
-        } catch (ClientException $clientException) {
-            $xml = simplexml_load_string($clientException->getResponse()->getBody());
-
-            return json_decode(json_encode($xml), true);
-        } catch (\InvalidArgumentException $invalidArgumentException) {
-            $xml = explode(self::SEPARATOR, $invalidArgumentException->getMessage());
-
-            return json_decode(json_encode($xml), true);
-        }
+        return $this->request('PUT', $uri, $body, __METHOD__);
     }
 }

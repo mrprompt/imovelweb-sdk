@@ -1,13 +1,14 @@
 <?php
 namespace ImovelWeb\Base;
 
+use GuzzleHttp\Exception\ClientException;
 use InvalidArgumentException;
 use Psr\Http\Client\ClientInterface;
 
 abstract class Base
 {
     protected ClientInterface $client;
-    public const SEPARATOR = '|';
+    protected const SEPARATOR = '|';
 
     /**
      * Constructor
@@ -20,6 +21,40 @@ abstract class Base
     }
 
     /**
+     * Do an HTTP request.
+     *
+     * @param string $method
+     * @param string $uri
+     * @param array $parameters
+     * @param string|null $validator
+     * @return mixed
+     */
+    protected function request(string $method, string $uri, array $parameters = [], string $validator = null)
+    {
+        try {
+            if (!is_null($validator)) {
+                $dataToValidate = array_shift($parameters);
+
+                $this->validate($validator, $dataToValidate);
+            }
+
+            $response = $this->client->request($method, $uri, $parameters);
+
+            return json_decode($response->getBody(), true);
+        } catch (ClientException $clientException) {
+            $xml = simplexml_load_string($clientException->getResponse()->getBody());
+
+            return json_decode(json_encode($xml), true);
+        } catch (InvalidArgumentException $invalidArgumentException) {
+            $xml = explode(self::SEPARATOR, $invalidArgumentException->getMessage());
+
+            return json_decode(json_encode($xml), true);
+        }
+    }
+
+    /**
+     * Validate using a schema.
+     *
      * @param string $namespace
      * @param array $data
      * @return bool
