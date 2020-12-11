@@ -3,9 +3,6 @@ namespace ImovelWeb\Base;
 
 use Psr\Http\Client\ClientInterface;
 
-/**
- * @codeCoverageIgnore
- */
 abstract class Base
 {
     protected ClientInterface $client;

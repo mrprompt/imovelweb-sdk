@@ -29,7 +29,7 @@ final class HttpClient extends Client
      * @param string $token The access token
      * @param string $mode The environment
      */
-    public function __construct(string $token, string $mode = 'production')
+    public function __construct(string $token, string $mode = self::PRODUCTION)
     {
         parent::__construct();
 
