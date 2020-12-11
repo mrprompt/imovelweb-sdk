@@ -45,4 +45,24 @@ final class LancamentosTest extends Base
         $this->assertArrayHasKey('warnings', $result[0]);
         $this->assertArrayHasKey('idEmpresa', $result[0]);
     }
+
+    /**
+     * @test
+     */
+    public function atualizarLancamentoComParametrosInvalidos()
+    {
+        $handleResponse = $this->fixture('atualizarLancamento', 'Responses');
+        $handlerStack = [new Response(201, [], $handleResponse)];
+
+        $this->client = $this->getClient($handlerStack);
+        $this->service = new Lancamentos($this->client);
+
+        $detalhes  = json_decode(trim($this->fixture('atualizarLancamento', 'Requests')), true);
+        $result = $this->service->atualizar('15447738', '3214568', $detalhes);
+
+        $this->assertArrayHasKey('codigoAviso', $result[0]);
+        $this->assertArrayHasKey('errors', $result[0]);
+        $this->assertArrayHasKey('warnings', $result[0]);
+        $this->assertArrayHasKey('idEmpresa', $result[0]);
+    }
 }

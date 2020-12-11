@@ -4,7 +4,7 @@ namespace ImovelWeb\Anuncios;
 use GuzzleHttp\Exception\ClientException;
 use ImovelWeb\Base\Base;
 
-class Anuncios extends Base
+final class Anuncios extends Base
 {
     /**
      * Resumo de todos os anúncios online de uma imobiliária.
@@ -40,7 +40,6 @@ class Anuncios extends Base
     {
         try {
             $uri = "imobiliarias/{$imobiliaria}/anuncios//{$anuncio}";
-
             $response = $this->client->request('DELETE', $uri);
 
             return json_decode($response->getBody(), true);
@@ -84,6 +83,8 @@ class Anuncios extends Base
     public function atualizar(string $imobiliaria, string $anuncio, array $detalhes = []): array
     {
         try {
+            $this->validate(__METHOD__, $detalhes);
+
             $uri = "imobiliarias/{$imobiliaria}/anuncios/{$anuncio}";
             $body = ['aviso' => json_encode($detalhes)];
 
@@ -94,6 +95,10 @@ class Anuncios extends Base
             $xml = simplexml_load_string($clientException->getResponse()->getBody());
 
             return json_decode(json_encode($xml), true);
+        } catch (\InvalidArgumentException $invalidArgumentException) {
+            $xml = explode(self::SEPARATOR, $invalidArgumentException->getMessage());
+
+            return json_decode(json_encode($xml), true);
         }
     }
 
@@ -101,8 +106,8 @@ class Anuncios extends Base
      * Associa o anúncio a um código do anúncio do integrador.
      *
      * @param string $imobiliaria
-     * @param string $anuncio
-     * @param array $detalhes
+     * @param string $origem
+     * @param string $destino
      * @return mixed
      */
     public function associar(string $imobiliaria, string $origem, string $destino): array

@@ -87,6 +87,26 @@ final class AnunciosTest extends Base
     /**
      * @test
      */
+    public function atualizarAnuncioComCamposInvalidos()
+    {
+        $handleResponse = $this->fixture('atualizarAnuncio', 'Responses');
+        $handlerStack = [new Response(201, [], $handleResponse)];
+
+        $this->client = $this->getClient($handlerStack);
+        $this->service = new Anuncios($this->client);
+
+        $detalhes = [];
+        $result = $this->service->atualizar('15447738', '3214568', $detalhes);
+
+        $this->assertArrayHasKey('errors', $result);
+        $this->assertArrayHasKey('warnings', $result);
+        $this->assertArrayHasKey('informacion', $result);
+        $this->assertArrayHasKey('codigoInmobiliaria', $result);
+    }
+
+    /**
+     * @test
+     */
     public function associarAnuncio()
     {
         $handleResponse = $this->fixture(__FUNCTION__, 'Responses');

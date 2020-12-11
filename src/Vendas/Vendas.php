@@ -4,7 +4,7 @@ namespace ImovelWeb\Vendas;
 use GuzzleHttp\Exception\ClientException;
 use ImovelWeb\Base\Base;
 
-class Vendas extends Base
+final class Vendas extends Base
 {
     /**
      * Disponíveis para um imóvel

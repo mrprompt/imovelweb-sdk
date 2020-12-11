@@ -3,8 +3,9 @@ namespace ImovelWeb\Anuncios;
 
 use GuzzleHttp\Exception\ClientException;
 use ImovelWeb\Base\Base;
+use ReflectionException;
 
-class Lancamentos extends Base
+final class Lancamentos extends Base
 {
     /**
      * Remover Lançamento
@@ -38,7 +39,6 @@ class Lancamentos extends Base
     {
         try {
             $uri = "imobiliarias/{$imobiliaria}/lancamentos/{$lancamento}";
-
             $response = $this->client->request('GET', $uri);
 
             return json_decode($response->getBody(), true);
@@ -60,6 +60,8 @@ class Lancamentos extends Base
     public function atualizar(string $imobiliaria, string $lancamento, array $detalhes = [])
     {
         try {
+            $this->validate(__METHOD__, $detalhes);
+
             $uri = "imobiliarias/{$imobiliaria}/lancamentos/{$lancamento}";
             $body = ['anuncio' => json_encode($detalhes)];
 
@@ -68,6 +70,10 @@ class Lancamentos extends Base
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
             $xml = simplexml_load_string($clientException->getResponse()->getBody());
+
+            return json_decode(json_encode($xml), true);
+        } catch (\InvalidArgumentException $invalidArgumentException) {
+            $xml = explode(self::SEPARATOR, $invalidArgumentException->getMessage());
 
             return json_decode(json_encode($xml), true);
         }

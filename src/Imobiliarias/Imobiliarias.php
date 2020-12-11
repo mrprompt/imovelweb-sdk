@@ -4,7 +4,7 @@ namespace ImovelWeb\Imobiliarias;
 use GuzzleHttp\Exception\ClientException;
 use ImovelWeb\Base\Base;
 
-class Imobiliarias extends Base
+final class Imobiliarias extends Base
 {
     /**
      * Todas as imobiliárias para uma integração.

@@ -4,7 +4,7 @@ namespace ImovelWeb\Configuracao;
 use GuzzleHttp\Exception\ClientException;
 use ImovelWeb\Base\Base;
 
-class Callbacks extends Base
+final class Callbacks extends Base
 {
     /**
      * Obter configuracoes Callback

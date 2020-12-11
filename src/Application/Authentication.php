@@ -4,7 +4,7 @@ namespace ImovelWeb\Application;
 use GuzzleHttp\Exception\ClientException;
 use ImovelWeb\Base\Base;
 
-class Authentication extends Base
+final class Authentication extends Base
 {
     /**
      * Application login

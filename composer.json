@@ -6,7 +6,8 @@
         "php": "^7.4|^8",
         "ext-json": "*",
         "ext-simplexml": "*",
-        "guzzlehttp/guzzle": "^7.2"
+        "guzzlehttp/guzzle": "^7.2",
+        "justinrainbow/json-schema": "^5.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.12",
