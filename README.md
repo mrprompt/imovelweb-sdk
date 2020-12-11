@@ -94,10 +94,10 @@ $imobiliarias->qualidade(string $imobiliaria);
 Vendas
 
 ```php
-use MrPrompt\ImovelWeb\Vendas\Callbacks;
+use MrPrompt\ImovelWeb\Vendas\Vendas;
 
 /* @var $client \MrPrompt\ImovelWeb\Base\HttpClient */
-$vendas = new Callbacks($client);
+$vendas = new Vendas($client);
 $vendas->listar();
 $vendas->grade(string $imobiliaria);
 ```
