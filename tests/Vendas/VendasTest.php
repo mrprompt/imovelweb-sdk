@@ -2,7 +2,7 @@
 namespace MrPrompt\ImovelWeb\Tests\Vendas;
 
 use GuzzleHttp\Psr7\Response;
-use MrPrompt\ImovelWeb\Vendas\Callbacks;
+use MrPrompt\ImovelWeb\Vendas\Vendas;
 use MrPrompt\ImovelWeb\Tests\Base\Base;
 
 final class VendasTest extends Base
@@ -16,7 +16,7 @@ final class VendasTest extends Base
         $handlerStack = [new Response(200, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
-        $this->service = new Callbacks($this->client);
+        $this->service = new Vendas($this->client);
         $result = $this->service->disponibilidade('123456');
 
         $this->assertArrayHasKey('disponibles', $result);
@@ -32,7 +32,7 @@ final class VendasTest extends Base
         $handlerStack = [new Response(200, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
-        $this->service = new Callbacks($this->client);
+        $this->service = new Vendas($this->client);
         $result = $this->service->grade('123456');
 
         $this->assertArrayHasKey('disponibles', $result);
