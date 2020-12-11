@@ -117,4 +117,4 @@ $callbacks->atualizar(array $configuracoes);
 
 # Documentação
 
-http://api-br.sandbox.open.navent.com/
+http://api-br.open.navent.com/
