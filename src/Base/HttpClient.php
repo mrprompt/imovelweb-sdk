@@ -1,5 +1,5 @@
 <?php
-namespace MrPrompt\ImovelWeb\Base;
+namespace ImovelWeb\Base;
 
 use GuzzleHttp\Client;
 

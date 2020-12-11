@@ -21,12 +21,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "MrPrompt\\ImovelWeb\\": "src/"
+            "ImovelWeb\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MrPrompt\\ImovelWeb\\Tests\\": "tests/"
+            "ImovelWeb\\Tests\\": "tests/"
         }
     }
 }

@@ -1,8 +1,8 @@
 <?php
-namespace MrPrompt\ImovelWeb\Tests\Base;
+namespace ImovelWeb\Tests\Base;
 
 use GuzzleHttp\ClientInterface;
-use MrPrompt\ImovelWeb\Base\HttpClient;
+use ImovelWeb\Base\HttpClient;
 
 final class HttpClientTest extends Base
 {

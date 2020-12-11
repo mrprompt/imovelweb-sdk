@@ -1,8 +1,8 @@
 <?php
-namespace MrPrompt\ImovelWeb\Application;
+namespace ImovelWeb\Application;
 
 use GuzzleHttp\Exception\ClientException;
-use MrPrompt\ImovelWeb\Base\Base;
+use ImovelWeb\Base\Base;
 
 class Authentication extends Base
 {

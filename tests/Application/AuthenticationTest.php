@@ -1,9 +1,9 @@
 <?php
-namespace MrPrompt\ImovelWeb\Tests\Application;
+namespace ImovelWeb\Tests\Application;
 
 use GuzzleHttp\Psr7\Response;
-use MrPrompt\ImovelWeb\Tests\Base\Base;
-use MrPrompt\ImovelWeb\Application\Authentication;
+use ImovelWeb\Tests\Base\Base;
+use ImovelWeb\Application\Authentication;
 
 final class AuthenticationTest extends Base
 {

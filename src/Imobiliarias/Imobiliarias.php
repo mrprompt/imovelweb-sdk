@@ -1,8 +1,8 @@
 <?php
-namespace MrPrompt\ImovelWeb\Imobiliarias;
+namespace ImovelWeb\Imobiliarias;
 
 use GuzzleHttp\Exception\ClientException;
-use MrPrompt\ImovelWeb\Base\Base;
+use ImovelWeb\Base\Base;
 
 class Imobiliarias extends Base
 {

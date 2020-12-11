@@ -14,7 +14,7 @@ composer require mrprompt/imovelweb-sdk
 Prepare o cliente HTTP com sua credencial e ambiente.
 
 ```php
-use MrPrompt\ImovelWeb\Base\HttpClient as Client;
+use ImovelWeb\Base\HttpClient as Client;
 
 $token = env('IMOVELWEB_TOKEN');
 $environment = env('IMOVELWEB_ENVIRONMENT'); // production | sandbox
@@ -27,9 +27,9 @@ $client = new Client($token, $environment);
 Login
 
 ```php
-use MrPrompt\ImovelWeb\Application\Authentication;
+use ImovelWeb\Application\Authentication;
 
-/* @var $client \MrPrompt\ImovelWeb\Base\HttpClient */
+/* @var $client \ImovelWeb\Base\HttpClient */
 $authentication = new Authentication($client);
 $authentication->login('CLIENT_ID', 'CLIENT_SECRET');
 ```
@@ -37,9 +37,9 @@ $authentication->login('CLIENT_ID', 'CLIENT_SECRET');
 Logout
 
 ```php
-use MrPrompt\ImovelWeb\Application\Authentication;
+use ImovelWeb\Application\Authentication;
 
-/* @var $client \MrPrompt\ImovelWeb\Base\HttpClient */
+/* @var $client \ImovelWeb\Base\HttpClient */
 $authentication = new Authentication($client);
 $authentication->logout('CLIENT_ID', 'CLIENT_SECRET', 'ACCESS_TOKEN');
 ```
@@ -49,9 +49,9 @@ $authentication->logout('CLIENT_ID', 'CLIENT_SECRET', 'ACCESS_TOKEN');
 Anúncios
 
 ```php
-use MrPrompt\ImovelWeb\Anuncios\Anuncios;
+use ImovelWeb\Anuncios\Anuncios;
 
-/* @var $client \MrPrompt\ImovelWeb\Base\HttpClient */
+/* @var $client \ImovelWeb\Base\HttpClient */
 $anuncios = new Anuncios($client);
 $anuncios->resumo(string $imobiliaria, array $args = []);
 $anuncios->remover(string $imobiliaria, string $anuncio);
@@ -65,9 +65,9 @@ $anuncios->status(string $imobiliaria, string $anuncio);
 Lançamentos
 
 ```php
-use MrPrompt\ImovelWeb\Anuncios\Lancamentos;
+use ImovelWeb\Anuncios\Lancamentos;
 
-/* @var $client \MrPrompt\ImovelWeb\Base\HttpClient */
+/* @var $client \ImovelWeb\Base\HttpClient */
 $lancamentos = new Lancamentos($client);
 $lancamentos->resumo(string $imobiliaria, string $lancamento);
 $lancamentos->info(string $imobiliaria, string $lancamento);
@@ -79,9 +79,9 @@ $lancamentos->atualizar(string $imobiliaria, string $lancamento, array $detalhes
 Anúncios
 
 ```php
-use MrPrompt\ImovelWeb\Imobiliarias\Imobiliarias;
+use ImovelWeb\Imobiliarias\Imobiliarias;
 
-/* @var $client \MrPrompt\ImovelWeb\Base\HttpClient */
+/* @var $client \ImovelWeb\Base\HttpClient */
 $imobiliarias = new Imobiliarias($client);
 $imobiliarias->listar();
 $imobiliarias->desvincular(string $imobiliaria);
@@ -94,9 +94,9 @@ $imobiliarias->qualidade(string $imobiliaria);
 Vendas
 
 ```php
-use MrPrompt\ImovelWeb\Vendas\Vendas;
+use ImovelWeb\Vendas\Vendas;
 
-/* @var $client \MrPrompt\ImovelWeb\Base\HttpClient */
+/* @var $client \ImovelWeb\Base\HttpClient */
 $vendas = new Vendas($client);
 $vendas->listar();
 $vendas->grade(string $imobiliaria);
@@ -107,9 +107,9 @@ $vendas->grade(string $imobiliaria);
 Callbacks
 
 ```php
-use MrPrompt\ImovelWeb\Configuracao\Callbacks;
+use ImovelWeb\Configuracao\Callbacks;
 
-/* @var $client \MrPrompt\ImovelWeb\Base\HttpClient */
+/* @var $client \ImovelWeb\Base\HttpClient */
 $callbacks = new Callbacks($client);
 $callbacks->listar();
 $callbacks->atualizar(array $configuracoes);

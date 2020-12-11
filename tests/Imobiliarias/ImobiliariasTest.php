@@ -1,9 +1,9 @@
 <?php
-namespace MrPrompt\ImovelWeb\Tests\Imobiliarias;
+namespace ImovelWeb\Tests\Imobiliarias;
 
 use GuzzleHttp\Psr7\Response;
-use MrPrompt\ImovelWeb\Imobiliarias\Imobiliarias;
-use MrPrompt\ImovelWeb\Tests\Base\Base;
+use ImovelWeb\Imobiliarias\Imobiliarias;
+use ImovelWeb\Tests\Base\Base;
 
 final class ImobiliariasTest extends Base
 {

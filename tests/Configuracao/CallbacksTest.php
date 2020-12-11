@@ -1,9 +1,9 @@
 <?php
-namespace MrPrompt\ImovelWeb\Tests\Configuracao;
+namespace ImovelWeb\Tests\Configuracao;
 
 use GuzzleHttp\Psr7\Response;
-use MrPrompt\ImovelWeb\Configuracao\Callbacks;
-use MrPrompt\ImovelWeb\Tests\Base\Base;
+use ImovelWeb\Configuracao\Callbacks;
+use ImovelWeb\Tests\Base\Base;
 
 final class CallbacksTest extends Base
 {

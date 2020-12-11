@@ -1,8 +1,8 @@
 <?php
-namespace MrPrompt\ImovelWeb\Anuncios;
+namespace ImovelWeb\Anuncios;
 
 use GuzzleHttp\Exception\ClientException;
-use MrPrompt\ImovelWeb\Base\Base;
+use ImovelWeb\Base\Base;
 
 class Anuncios extends Base
 {

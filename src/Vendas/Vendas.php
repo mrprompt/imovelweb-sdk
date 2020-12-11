@@ -1,8 +1,8 @@
 <?php
-namespace MrPrompt\ImovelWeb\Vendas;
+namespace ImovelWeb\Vendas;
 
 use GuzzleHttp\Exception\ClientException;
-use MrPrompt\ImovelWeb\Base\Base;
+use ImovelWeb\Base\Base;
 
 class Vendas extends Base
 {

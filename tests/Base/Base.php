@@ -1,5 +1,5 @@
 <?php
-namespace MrPrompt\ImovelWeb\Tests\Base;
+namespace ImovelWeb\Tests\Base;
 
 use Faker\Generator;
 use Faker\Factory;

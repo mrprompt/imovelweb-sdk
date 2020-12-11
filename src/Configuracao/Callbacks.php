@@ -1,8 +1,8 @@
 <?php
-namespace MrPrompt\ImovelWeb\Configuracao;
+namespace ImovelWeb\Configuracao;
 
 use GuzzleHttp\Exception\ClientException;
-use MrPrompt\ImovelWeb\Base\Base;
+use ImovelWeb\Base\Base;
 
 class Callbacks extends Base
 {
