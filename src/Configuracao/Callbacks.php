@@ -33,12 +33,18 @@ final class Callbacks extends Base
     public function atualizar(array $configuracoes)
     {
         try {
+            $this->validate(__METHOD__, $configuracoes);
+
             $body = ['configuracionCallback' => json_encode($configuracoes)];
             $response = $this->client->request('PUT', "configuracao/callbacks", $body);
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
             $xml = simplexml_load_string($clientException->getResponse()->getBody());
+
+            return json_decode(json_encode($xml), true);
+        } catch (\InvalidArgumentException $invalidArgumentException) {
+            $xml = explode(self::SEPARATOR, $invalidArgumentException->getMessage());
 
             return json_decode(json_encode($xml), true);
         }
