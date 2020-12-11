@@ -21,6 +21,9 @@ class Lancamentos extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
+            $xml = simplexml_load_string($clientException->getResponse()->getBody());
+
+            return json_decode(json_encode($xml), true);
         }
     }
 
@@ -40,6 +43,9 @@ class Lancamentos extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
+            $xml = simplexml_load_string($clientException->getResponse()->getBody());
+
+            return json_decode(json_encode($xml), true);
         }
     }
 
@@ -61,6 +67,9 @@ class Lancamentos extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
+            $xml = simplexml_load_string($clientException->getResponse()->getBody());
+
+            return json_decode(json_encode($xml), true);
         }
     }
 }

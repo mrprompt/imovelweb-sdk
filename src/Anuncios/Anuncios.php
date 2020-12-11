@@ -14,7 +14,7 @@ class Anuncios extends Base
      * @param array $args
      * @return mixed
      */
-    public function resumo(string $imobiliaria, array $args = [])
+    public function resumo(string $imobiliaria, array $args = []): array
     {
         try {
             $uri = "imobiliarias/{$imobiliaria}/anuncios/online/resumo";
@@ -23,6 +23,9 @@ class Anuncios extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
+            $xml = simplexml_load_string($clientException->getResponse()->getBody());
+
+            return json_decode(json_encode($xml), true);
         }
     }
 
@@ -33,7 +36,7 @@ class Anuncios extends Base
      * @param string $anuncio
      * @return mixed
      */
-    public function remover(string $imobiliaria, string $anuncio)
+    public function remover(string $imobiliaria, string $anuncio): array
     {
         try {
             $uri = "imobiliarias/{$imobiliaria}/anuncios//{$anuncio}";
@@ -42,6 +45,9 @@ class Anuncios extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
+            $xml = simplexml_load_string($clientException->getResponse()->getBody());
+
+            return json_decode(json_encode($xml), true);
         }
     }
 
@@ -52,7 +58,7 @@ class Anuncios extends Base
      * @param string $anuncio
      * @return mixed
      */
-    public function info(string $imobiliaria, string $anuncio)
+    public function info(string $imobiliaria, string $anuncio): array
     {
         try {
             $uri = "imobiliarias/{$imobiliaria}/anuncios/{$anuncio}";
@@ -61,6 +67,9 @@ class Anuncios extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
+            $xml = simplexml_load_string($clientException->getResponse()->getBody());
+
+            return json_decode(json_encode($xml), true);
         }
     }
 
@@ -72,7 +81,7 @@ class Anuncios extends Base
      * @param array $detalhes
      * @return mixed
      */
-    public function atualizar(string $imobiliaria, string $anuncio, array $detalhes = [])
+    public function atualizar(string $imobiliaria, string $anuncio, array $detalhes = []): array
     {
         try {
             $uri = "imobiliarias/{$imobiliaria}/anuncios/{$anuncio}";
@@ -82,6 +91,9 @@ class Anuncios extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
+            $xml = simplexml_load_string($clientException->getResponse()->getBody());
+
+            return json_decode(json_encode($xml), true);
         }
     }
 
@@ -93,7 +105,7 @@ class Anuncios extends Base
      * @param array $detalhes
      * @return mixed
      */
-    public function associar(string $imobiliaria, string $origem, string $destino)
+    public function associar(string $imobiliaria, string $origem, string $destino): array
     {
         try {
             $uri = "imobiliarias/{$imobiliaria}/anuncios/{$origem}/{$destino}";
@@ -102,6 +114,9 @@ class Anuncios extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
+            $xml = simplexml_load_string($clientException->getResponse()->getBody());
+
+            return json_decode(json_encode($xml), true);
         }
     }
 
@@ -112,7 +127,7 @@ class Anuncios extends Base
      * @param string $anuncio
      * @return mixed
      */
-    public function qualidade(string $imobiliaria, string $anuncio)
+    public function qualidade(string $imobiliaria, string $anuncio): array
     {
         try {
             $uri = "imobiliarias/{$imobiliaria}/anuncios/{$anuncio}/qualidade";
@@ -121,6 +136,9 @@ class Anuncios extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
+            $xml = simplexml_load_string($clientException->getResponse()->getBody());
+
+            return json_decode(json_encode($xml), true);
         }
     }
 
@@ -131,7 +149,7 @@ class Anuncios extends Base
      * @param string $anuncio
      * @return mixed
      */
-    public function status(string $imobiliaria, string $anuncio)
+    public function status(string $imobiliaria, string $anuncio): array
     {
         try {
             $uri = "imobiliarias/{$imobiliaria}/anuncios/{$anuncio}/status";
@@ -140,6 +158,9 @@ class Anuncios extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
+            $xml = simplexml_load_string($clientException->getResponse()->getBody());
+
+            return json_decode(json_encode($xml), true);
         }
     }
 }

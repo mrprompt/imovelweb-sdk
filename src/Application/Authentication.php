@@ -6,6 +6,14 @@ use ImovelWeb\Base\Base;
 
 class Authentication extends Base
 {
+    /**
+     * Application login
+     *
+     * @param string $clientId
+     * @param string $clientSecret
+     * @param string $grantType
+     * @return mixed
+     */
     public function login(string $clientId, string $clientSecret, string $grantType = 'client_credentials')
     {
         try {
@@ -23,9 +31,20 @@ class Authentication extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
+            $xml = simplexml_load_string($clientException->getResponse()->getBody());
+
+            return json_decode(json_encode($xml), true);
         }
     }
 
+    /**
+     * Logout de usuario
+     *
+     * @param string $clientId
+     * @param string $clientSecret
+     * @param string $token
+     * @return mixed
+     */
     public function logout(string $clientId, string $clientSecret, string $token)
     {
         try {
@@ -43,6 +62,9 @@ class Authentication extends Base
 
             return json_decode($response->getBody(), true);
         } catch (ClientException $clientException) {
+            $xml = simplexml_load_string($clientException->getResponse()->getBody());
+
+            return json_decode(json_encode($xml), true);
         }
     }
 }

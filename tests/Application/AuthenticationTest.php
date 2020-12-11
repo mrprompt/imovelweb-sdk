@@ -45,7 +45,8 @@ final class AuthenticationTest extends Base
             $this->faker->randomNumber(6)
         );
 
-        $this->assertEmpty($result);
+        $this->assertArrayHasKey('error', $result);
+        $this->assertArrayHasKey('error_description', $result);
     }
 
     /**
@@ -53,7 +54,7 @@ final class AuthenticationTest extends Base
      */
     public function logoutWithValidCredentials()
     {
-        $handleResponse = '';
+        $handleResponse = $this->fixture(__FUNCTION__, 'Responses');
         $handlerStack = [new Response(204, [], $handleResponse)];
 
         $this->client = $this->getClient($handlerStack);
@@ -85,6 +86,7 @@ final class AuthenticationTest extends Base
             $this->faker->uuid,
         );
 
-        $this->assertEmpty($result);
+        $this->assertArrayHasKey('error', $result);
+        $this->assertArrayHasKey('error_description', $result);
     }
 }
