@@ -63,7 +63,7 @@ final class AuthenticationTest extends Base
         $result = $this->service->logout(
             $this->faker->shuffleString(),
             $this->faker->randomNumber(6),
-            $this->faker->uuid,
+            $this->faker->uuid
         );
 
         $this->assertEmpty($result);
@@ -83,7 +83,7 @@ final class AuthenticationTest extends Base
         $result = $this->service->logout(
             $this->faker->shuffleString(),
             $this->faker->randomNumber(6),
-            $this->faker->uuid,
+            $this->faker->uuid
         );
 
         $this->assertArrayHasKey('error', $result);
