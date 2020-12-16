@@ -3,12 +3,17 @@ namespace ImovelWeb\Base;
 
 use GuzzleHttp\Exception\ClientException;
 use InvalidArgumentException;
+use JsonSchema\Validator;
 use Psr\Http\Client\ClientInterface;
 
 abstract class Base
 {
-    protected ClientInterface $client;
-    protected const SEPARATOR = '|';
+    /**
+     * @var ClientInterface
+     */
+    protected $client;
+
+    const SEPARATOR = '|';
 
     /**
      * Constructor
@@ -63,7 +68,7 @@ abstract class Base
     {
         $schemaFile = $this->schema($namespace);
 
-        $validator = new \JsonSchema\Validator;
+        $validator = new Validator;
         $validator->validate($data, (object)['$ref' => 'file:///' . $schemaFile]);
 
         if ($validator->isValid()) {

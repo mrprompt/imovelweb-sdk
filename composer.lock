@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6184393e5540f605a23a0dcf4fdd26b6",
+    "content-hash": "9f1d2e05ca826c9ad0b1f19a9150b35e",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -500,16 +500,16 @@
         },
         {
             "name": "fakerphp/faker",
-            "version": "v1.12.0",
+            "version": "v1.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FakerPHP/Faker.git",
-                "reference": "9aa6c9e289860951e6b4d010c7a841802d015cd8"
+                "reference": "841e8bdde345cc1ea9f98e776959e7531cadea0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/9aa6c9e289860951e6b4d010c7a841802d015cd8",
-                "reference": "9aa6c9e289860951e6b4d010c7a841802d015cd8",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/841e8bdde345cc1ea9f98e776959e7531cadea0e",
+                "reference": "841e8bdde345cc1ea9f98e776959e7531cadea0e",
                 "shasum": ""
             },
             "require": {
@@ -544,7 +544,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2020-11-23T09:33:08+00:00"
+            "time": "2020-12-11T10:39:41+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -710,16 +710,16 @@
         },
         {
             "name": "phar-io/version",
-            "version": "3.0.3",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/version.git",
-                "reference": "726c026815142e4f8677b7cb7f2249c9ffb7ecae"
+                "reference": "e4782611070e50613683d2b9a57730e9a3ba5451"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/version/zipball/726c026815142e4f8677b7cb7f2249c9ffb7ecae",
-                "reference": "726c026815142e4f8677b7cb7f2249c9ffb7ecae",
+                "url": "https://api.github.com/repos/phar-io/version/zipball/e4782611070e50613683d2b9a57730e9a3ba5451",
+                "reference": "e4782611070e50613683d2b9a57730e9a3ba5451",
                 "shasum": ""
             },
             "require": {
@@ -753,7 +753,7 @@
                 }
             ],
             "description": "Library for handling version information and constraints",
-            "time": "2020-11-30T09:21:21+00:00"
+            "time": "2020-12-13T23:18:30+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -2490,7 +2490,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4|^8",
+        "php": ">=7.2",
         "ext-json": "*",
         "ext-simplexml": "*"
     },

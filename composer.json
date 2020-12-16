@@ -3,7 +3,7 @@
     "description": "SDK de Integra\u0000\u0000o com a Im\u0000vel Web",
     "type": "library",
     "require": {
-        "php": "^7.4|^8",
+        "php": ">=7.2",
         "ext-json": "*",
         "ext-simplexml": "*",
         "guzzlehttp/guzzle": "^7.2",

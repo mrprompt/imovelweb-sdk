@@ -12,9 +12,20 @@ use ReflectionClass;
 
 abstract class Base extends TestCase
 {
-    protected ClientInterface $client;
-    protected Generator $faker;
-    protected object $service;
+    /**
+     * @var ClientInterface
+     */
+    protected $client;
+
+    /**
+     * @var Generator
+     */
+    protected $faker;
+
+    /**
+     * @var object
+     */
+    protected $service;
 
     public function setUp(): void
     {
@@ -28,6 +39,7 @@ abstract class Base extends TestCase
         $mock = new MockHandler($handlerStack);
 
         $handler = HandlerStack::create($mock);
+
         $client = new Client(['handler' => $handler]);
         $client->baseUrl = '';
 

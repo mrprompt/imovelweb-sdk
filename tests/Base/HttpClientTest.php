@@ -11,7 +11,6 @@ final class HttpClientTest extends Base
      */
     public function constructor()
     {
-
         $token = $this->faker->uuid;
         $client = new HttpClient($token);
 

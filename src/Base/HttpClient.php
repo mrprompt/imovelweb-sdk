@@ -5,10 +5,10 @@ use GuzzleHttp\Client;
 
 final class HttpClient extends Client
 {
-    public const USER_AGENT = 'ImovelWeb HTTP Client';
-    public const PRODUCTION  = 'production';
-    public const SANDBOX = 'sandbox';
-    private const CLIENT_URLS = [
+    const USER_AGENT = 'ImovelWeb HTTP Client';
+    const PRODUCTION  = 'production';
+    const SANDBOX = 'sandbox';
+    const CLIENT_URLS = [
         self::PRODUCTION => 'http://api-br.open.navent.com/v1/',
         self::SANDBOX => 'http://api-br.sandbox.open.navent.com/v1/',
     ];
@@ -16,12 +16,12 @@ final class HttpClient extends Client
     /**
      * @var string
      */
-    public string $baseUrl = '/';
+    public $baseUrl = '/';
 
     /**
      * @var array
      */
-    public array $headers;
+    public $headers;
 
     /**
      * Initialize the HTTP Client used by SDK.
