@@ -1,10 +1,10 @@
 <?php
 namespace ImovelWeb\Base;
 
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use InvalidArgumentException;
 use JsonSchema\Validator;
-use Psr\Http\Client\ClientInterface;
 
 abstract class Base
 {
