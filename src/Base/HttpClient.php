@@ -31,10 +31,7 @@ final class HttpClient extends Client
      */
     public function __construct(string $token, string $mode = self::PRODUCTION)
     {
-        parent::__construct();
-
         $this->baseUrl = self::CLIENT_URLS[$mode];
-
         $this->headers = [
             'Content-Type' => 'application/json',
             'User-Agent' => self::USER_AGENT,
@@ -43,5 +40,9 @@ final class HttpClient extends Client
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token,
         ];
-    }
+
+        parent::__construct([
+            'base_uri' => $this->baseUrl,
+            'headers' => $this->headers,
+        ]);    }
 }
