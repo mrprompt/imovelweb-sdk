@@ -1,6 +1,7 @@
 <?php
 namespace ImovelWeb\Base;
 
+use Error;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use InvalidArgumentException;
@@ -52,6 +53,10 @@ abstract class Base
             return json_decode(json_encode($xml), true);
         } catch (InvalidArgumentException $invalidArgumentException) {
             $xml = explode(self::SEPARATOR, $invalidArgumentException->getMessage());
+
+            return json_decode(json_encode($xml), true);
+        } catch (Error $error) {
+            $xml = explode(self::SEPARATOR, $error->getMessage());
 
             return json_decode(json_encode($xml), true);
         }
