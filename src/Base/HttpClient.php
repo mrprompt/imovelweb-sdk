@@ -44,5 +44,6 @@ final class HttpClient extends Client
         parent::__construct([
             'base_uri' => $this->baseUrl,
             'headers' => $this->headers,
-        ]);    }
+        ]);
+    }
 }
