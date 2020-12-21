@@ -1,0 +1,18 @@
+[
+  {
+    "alias": [
+      "string"
+    ],
+    "categoria": "string",
+    "id": "string",
+    "tipoDeCaracteristica": {
+      "tipo": "string",
+      "valoresAdmitidos": [
+        {
+          "idValor": "string",
+          "nombre": "string"
+        }
+      ]
+    }
+  }
+]
