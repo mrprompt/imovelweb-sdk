@@ -1,0 +1,54 @@
+{
+  "codigoMensaje": "string",
+  "mensaje": "string",
+  "smartlead": {
+    "ambientes": {
+      "max": 0,
+      "min": 0
+    },
+    "antiguedad": {
+      "max": 0,
+      "min": 0
+    },
+    "banios": {
+      "max": 0,
+      "min": 0
+    },
+    "cantidadAvisosVistos": 0,
+    "contactos": 0,
+    "empezoABuscarHaceXDias": 0,
+    "habitaciones": {
+      "max": 0,
+      "min": 0
+    },
+    "porcentajeAvisosConExpensas": 0,
+    "porcentajeAvisosConGarage": 0,
+    "precio": {
+      "max": 0,
+      "min": 0,
+      "moneda": "string"
+    },
+    "rangoDeExpensas": {
+      "max": 0,
+      "min": 0
+    },
+    "superficieCubiertaXm2": {
+      "max": 0,
+      "min": 0
+    },
+    "superficieTotalXm2": {
+      "max": 0,
+      "min": 0
+    },
+    "tipoDeBusqueda": {
+      "operacion": "string",
+      "tipoPropiedad": "string"
+    },
+    "ubicacionesContactadas": [
+      {
+        "nombre": "string",
+        "porcentajeDeContactos": 0
+      }
+    ]
+  }
+}

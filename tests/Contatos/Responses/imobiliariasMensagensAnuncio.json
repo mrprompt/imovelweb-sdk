@@ -1,0 +1,21 @@
+{
+  "content": [
+    {
+      "codigoAviso": "string",
+      "email": "string",
+      "fecha": "2020-12-21T16:36:02.880Z",
+      "id": 0,
+      "idAvisoNavplat": 0,
+      "idContacto": 0,
+      "idContactoAccion": 0,
+      "idMensaje": 0,
+      "nombre": "string",
+      "telefono": "string",
+      "textoMensaje": "string"
+    }
+  ],
+  "number": 0,
+  "size": 0,
+  "total": 0
+}
+

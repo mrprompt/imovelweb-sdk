@@ -1,7 +1,6 @@
 <?php
 namespace ImovelWeb\Imobiliarias;
 
-use GuzzleHttp\Exception\ClientException;
 use ImovelWeb\Base\Base;
 
 final class Imobiliarias extends Base
