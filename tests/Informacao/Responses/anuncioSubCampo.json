@@ -1,0 +1,12 @@
+{
+  "descripcion": "string",
+  "ejemplo": "string",
+  "esObligatorio": "string",
+  "especificacion": "string",
+  "maximo": "string",
+  "minimo": "string",
+  "nombre": "string",
+  "posiblesValores": "string",
+  "recomendaciones": "string",
+  "tipo": "string"
+}
