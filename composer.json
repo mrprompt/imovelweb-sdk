@@ -6,7 +6,7 @@
         "php": ">=7.2",
         "ext-json": "*",
         "ext-simplexml": "*",
-        "guzzlehttp/guzzle": "^6.5",
+        "guzzlehttp/guzzle": "^7.0",
         "justinrainbow/json-schema": "^5.2"
     },
     "require-dev": {
