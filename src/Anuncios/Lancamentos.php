@@ -12,7 +12,7 @@ final class Lancamentos extends Base
      * @param string $lancamento
      * @return mixed
      */
-    public function resumo(string $imobiliaria, string $lancamento)
+    public function remover(string $imobiliaria, string $lancamento)
     {
         $uri = "imobiliarias/{$imobiliaria}/lancamentos/{$lancamento}";
 
