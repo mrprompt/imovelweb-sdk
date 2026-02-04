@@ -27,7 +27,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer update --no-interaction --no-progress --ignore-platform-reqs
+          composer update --no-interaction --no-progress
 
       - name: Run Tests
         run: |
